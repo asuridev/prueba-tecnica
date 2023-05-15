@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  db_users:
+    container_name: db_users
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=users-db
+  user_micro:
+    depends_on:
+      - db_users
+    container_name: user
+    build: ./user-micro
+    image: user_domina
+    ports:
+      - "5000:3000"
+  db_tasks:
+    container_name: db_tasks
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=tasks-db 
+  task_micro:
+    depends_on:
+      - db_tasks
+    container_name: tasks
+    build: ./task-micro
+    image: tasks_domina
+    ports:
+      - "5050:3000"  
+    
+    
+    
+    
+    
