@@ -1,2 +1,4 @@
 task-micro/node_modules
 user-micro/node_modules
+task-ui/node_modules
+users-ui/node_modules
